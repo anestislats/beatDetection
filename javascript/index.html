@@ -1,0 +1,23 @@
+<html>
+	<head> </head>
+	<body>
+		<form>
+			<input type="text" id="query" placeholder="Type the name of a track (e.g. Beyonce - Baby Boy)">
+			<input type="submit" value="Search track &amp; Calculate tempo">
+		</form>
+
+		<div id="result">
+			<div id="text"></div>
+			<div>
+				<svg width="100%" height="40" id="svg"></svg>
+				<button id="play">Play track</button>
+			</div>
+
+			<audio id="audio"></audio>
+		</div>
+		
+		<script src="javascript/spotify-web-api.js"></script>
+		<script src="javascript/echonest-api.js"></script>
+		<script src="javascript/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+   <!--- Basic Page Needs
+   ================================================== -->
+	<meta charset="utf-8">
+	<title>Beat Detector</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/layout.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="music.ico" >
+
+
+</head>
+
+<body data-spy="scroll" data-target="#nav-wrap">
+
+
+   <!-- Header
+   ================================================== -->
+   <header class="mobile">
+
+      <div class="row">
+
+         <div class="col full">
+
+            <div class="logo">
+               <a href="#"><img alt="" src="images/logo.png"></a>
+            </div>
+
+            <nav id="nav-wrap">
+
+               <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	            <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul id="nav" class="nav">
+	               <li><a href="#intro">Home</a></li> 
+	               <li><a href="#beatDetection">Beat Detection</a></li>
+	               <li><a href="#nameDetect">Give the Name of a Track </a></li>
+	               <li><a href="#uploadDetect">Upload your Track</a></li>
+                  <li><a href="#about">About</a></li>
+               </ul>
+
+            </nav>
+
+         </div>
+
+      </div>
+
+   </header> <!-- Header End -->
+
+
+   <!-- Intro Section
+   ================================================== -->
+   <section id="intro">
+
+      <!-- Flexslider Start-->
+	   <div id="intro-slider" class="flexslider">
+
+		   <ul class="slides">
+
+			   <!-- Slide -->
+			   <li>
+				   <div class="row">
+					   <div class="col full">
+						   <div class="slider-text">
+							   <h2>Beat Detector</h2>
+							   <p>Find out the tempo of any track.</p>
+						   </div>
+					   </div>
+				   </div>
+			   </li>
+
+            <!-- Slide -->
+			
+	   <!-- Flexslider End-->
+
+   </section> <!-- Intro Section End-->
+
+
+   <!-- Name a Song Section
+   ================================================== -->
+   <section id="beatDetection">
+	
+      <div class="row section-head">
+
+         <div class="col one-third">
+            <h2>Find out the beat of a song</h2>
+            <p class="desc">Give the name of artist-song, or upload your track.</p>
+         </div>
+ 
+         <div class="col two-thirds">
+            <div class="intro">
+             <p>Beat Detector is a web application that calculates the tempo of any track.  
+              </p>
+			  <p>You only need to know the name of the track or have stored the track to your computer.
+			  </p>
+			  <button onclick="location.href = '#nameDetect';" id="NameButton" class="float-left submit-button" >I know the name of the track</button>
+			  <button onclick="location.href = '#uploadDetect';" id="UploadButton" class="float-left submit-button" >I have the track stored</button>
+
+			
+            </div>
+         </div>
+
+      </div>
+
+   </section> <!-- beatDetection Section End -->
+
+
+   <!-- Name a Song Section
+   ================================================== -->
+   <section id="nameDetect">
+
+      <div class="row section-head">
+         <div class="col full">
+
+            <h2>Name a Track</h2>
+            <p class="desc">Give the Name of Artist - Track and Detect the Beat  .</p>
+
+            <p class="intro">The name of the track has to be in form "Artist's name - Song's name" (e.g. AC/DC - Ride on)
+            </p>
+			
+			<form>
+				<input type="text" id="query" placeholder="Type the name of a track (e.g. Beyonce - Baby Boy)">
+				<input type="submit" value="Search track &amp; Calculate tempo">
+			</form>
+			
+			<div id="result">
+				<div id="text"></div>
+				<div>
+					<svg width="100%" height="40" id="svg"></svg>
+					<button id="play">Play track</button>
+				</div>
+
+				<audio id="audio"></audio>
+			</div>
+					
+			
+         </div>
+      </div>
+
+   </section> <!-- nameDetect End -->
+
+   <!-- Upload Track Section
+   ================================================== -->
+   <section id="uploadDetect">
+
+      <div class="row section-head">
+         <div class="col full">
+            <h2>Upload Your Track</h2>
+            <p class="desc">Upload a track from your computer and find out its beat.</p>
+			<p class="intro">The track has to be maximum 20mb and (.mp3), (.mp4) or (.wav) formated. 
+            </p>
+			
+			<form enctype="multipart/form-data" action="BeatDetectionMatlab/upload.php" method="post" accept-charset="utf-8" accept="audio/*">
+				Select audio file to upload:  
+				<input type="file" name="file" id="file">
+				<br><br>
+				<input type="submit" value="Upload Audio File" name="submit">
+			</form>	
+		</div>
+      </div>
+   </section>  <!-- uploadDetect Section End -->
+
+
+   <!-- About Section
+   ================================================== -->
+   <section id="about">
+
+      <div class="row section-head">
+
+         <div class="col one-fourth">
+            <h2>About</h2>
+            <p class="desc"The Project></p>
+         </div>
+
+         <div class="col three-fourths">
+             <p class="intro"> This project created in 2015, for the Ionian University.
+							It constitutes academic work for the study of Speech and Sound Editing.</p>
+			<p class="intro"> A user picks a track by two possible ways, (by name or by uploading) and the application calculates the BPM of the track with two different ways, (using a Javascript or a Matlab algorith.), one way for each case. Beat detector also shows the BPM of the track according to The Echo Nest. </p>
+			<p class="desc">The project uses the Echo Nest and the Spotify API.</br>
+							<li>Template was taken from <a href="http://www.styleshout.com/"title="Styleshout">here</a></li>
+							<li>Javascript Algorithm was taken from <a href="http://tech.beatport.com/2014/web-audio/beat-detection-using-web-audio/"title="Styleshout">here</a> and <a href="http://jmperezperez.com/beats-audio-api/"</a>here</li>
+							<li>Matlab Algorithm was taken from <a href="https://www.clear.rice.edu/elec301/Projects01/beat_sync/beatalgo.html"title="Styleshout">here</a></li>
+							All necessary licenses are available.</p>
+         </div>
+
+      </div>
+	  
+   </section> <!-- About Section End-->
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+
+      <div class="row">
+
+         <div class="col g-7">
+            <ul class="copyright">
+               <li>&copy; 2015 Ionian University</li>
+               <li>Design by <a href="http://www.styleshout.com/" title="Styleshout">Styleshout</a></li>               
+            </ul>
+         </div>
+      </div>
+
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/scrollspy.js"></script>
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/jquery.reveal.js"></script>
+   <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+   <script src="js/gmaps.js"></script>
+   <script src="js/init.js"></script>
+   <script src="js/smoothscrolling.js"></script>
+
+   
+	<script src="javascript/spotify-web-api.js"></script>
+	<script src="javascript/echonest-api.js"></script>
+	<script src="javascript/script.js"></script>
+   
+</body>
+
+</html>
